@@ -1,0 +1,136 @@
+@import url(main.scss);
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  background: -webkit-gradient(linear, left top, right bottom, from(#EC2F4B), to(#009FFF));
+  background: linear-gradient(to bottom right, #EC2F4B, #009FFF);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.5);
+  -webkit-clip-path: circle(30% at right 70%);
+          clip-path: circle(30% at right 70%);
+}
+
+body::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.5);
+  -webkit-clip-path: circle(20% at 10% 10%);
+          clip-path: circle(20% at 10% 10%);
+}
+
+.glassmorphism {
+  position: relative;
+  height: 85vh;
+  width: 85vw;
+  border-radius: 1rem;
+  background-color: rgba(255, 255, 255, 0.2);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  z-index: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.glassmorphism .nav {
+  height: 100%;
+  width: 200px;
+  background-color: #EC2F4B;
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.glassmorphism .nav .nav-logo {
+  width: 100%;
+  top: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 20%;
+}
+
+.glassmorphism .nav .nav-logo img {
+  width: 100px;
+  height: auto;
+}
+
+.glassmorphism .nav .nav-menu {
+  width: 100%;
+  height: 60%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.glassmorphism .nav .nav-menu ul {
+  list-style: none;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.glassmorphism .nav .nav-menu ul li a {
+  color: #fbd3d9;
+  text-decoration: none;
+  text-align: center;
+}
+
+.glassmorphism .nav .nav-menu ul li:hover a {
+  color: white;
+}
+/*# sourceMappingURL=admin.css.map */

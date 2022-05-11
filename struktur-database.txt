@@ -1,0 +1,44 @@
+STRUKTUR DATABASE
+=======================================
+
+DATABASE => db_yunisariamalia
+
+DAFTAR TABEL
+---------------------------------------
+1. tb_admin (4 kolom)
+ > id_admin (PK)
+ > nm_admin
+ > username
+ > pasword
+
+2. tb_about (5 kolom)
+ > id_about (pk)
+ > description
+ > education
+ > social_and_organization
+ > work_experience
+
+3. tb_experience (6 kolom)
+ > research
+ > roles_in_project
+ > invited_speaker
+ > reviewer_experience
+ > presentation
+ > paper_presented
+
+4. tb_publication (2 kolom)
+ > written_book
+ > scientific_articles
+
+5. tb_scholarships_and_awards (1 kolom)
+ > there_are
+
+6. tb_contact (4 kolom)
+ > name
+ > email
+ > subject
+ > message
+
+
+MENU 
+==================================
