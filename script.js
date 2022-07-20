@@ -31,7 +31,6 @@ for (let i = 0; i < titleH2.length; i++) {
     titleH2[i].style.textTransform = 'capitalize';
 }
 
-
 // Adding Element <hr>
 const parentHr = document.querySelectorAll('.section #title');
 for (let i = 0; i < parentHr.length; i++) {

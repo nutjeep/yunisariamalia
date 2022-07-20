@@ -1,4 +1,4 @@
-@import url(main.scss);
+@import "main.scss";
 
 * {
     margin: 0;
@@ -6,10 +6,49 @@
     box-sizing: border-box;
 }
 
+@mixin button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    background-color: $color3;
+    font-size: 14px;
+    color: white;
+
+    a {
+        color: white;
+        font-size: 14px;
+        text-decoration: none;
+    }    
+    &:hover {
+        background-color: darken($color3, 10%);
+    }
+}
+
+@mixin button-delete {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    background-color: $color1;
+    color: white;
+    a {
+        color: white;
+        font-size: 13px;
+        text-decoration: none;
+    } 
+
+    &:hover {
+        background-color: darken($color1, 10%);
+    }
+}
+
+$color1: #EC2F4B;
+$color2: #009FFF;
+$color3: #00DF00;
+
 body {
     height: 100vh;
     width: 100vw;
-    background: linear-gradient(to bottom right, #EC2F4B, #009FFF);
+    background: linear-gradient(to bottom right, $color1, $color2);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -35,6 +74,15 @@ body {
         background: rgba(255, 255, 255, 0.5);
         clip-path: circle(20% at 10% 10%);
     }
+
+    .modal {
+        font-size: 15px;
+        .modal-footer {
+            button {
+                font-size: 13px;
+            }
+        }
+    }
 }
 
 .glassmorphism {
@@ -43,13 +91,14 @@ body {
     width: 85vw;
     border-radius: 1rem;
     background-color: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(15px);
     z-index: 1;
     display: flex;
+    box-shadow: 20px 10px 30px rgba(0,0,0,0.2);
 
     .nav {
         height: 100%;
-        width: 200px;
+        width: 20%;
         background-color: #EC2F4B;
         border-top-left-radius: 1rem;
         border-bottom-left-radius: 1rem;
@@ -65,37 +114,247 @@ body {
             height: 20%;
 
             img {
-                width: 100px;
+                width: 80%;
                 height: auto;
             }
         }
 
         .nav-menu {
             width: 100%;
-            height: 60%;
+            height: 70%;
             display: flex;
-            justify-content: center;
+            justify-content: flex-start;
 
             ul {
                 list-style: none;
-                text-align: center;
                 display: flex;
                 flex-direction: column;
-                align-items: center;
                 justify-content: space-evenly;
 
                 li {
                     a {
-                        color: lighten(#EC2F4B, 35%);
+                        color: lighten($color1, 30%);
                         text-decoration: none;
-                        text-align: center;
-                    }
+                        display: flex;
 
-                    &:hover a {
-                        color: white;
+                        &:hover {
+                            color: white;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    #content {
+        height: 100%;
+        width: 100%;
+        overflow: auto;
+        padding: 1.5rem;
+
+        .title {
+            margin-bottom: 1.5rem;
+            h3 {
+                font-weight: 600;
+                letter-spacing: 2px;
+            }                
+        }
+
+        .subcontent {
+            .form-description {
+                background-color: white;
+                padding: 1rem;
+                border-radius: 10px;
+                width: 80%;
+                .btn {
+                    cursor: default;
+                    button:nth-child(1) {
+                        @include button();
+                        margin-right: .5rem;
+                    }
+                    button:nth-child(2){
+                        a {
+                            text-decoration: none;
+                            color: $color1;
+                            font-size: 14px;
+                            font-weight: 500;
+                        }
+                    }
+                }
+            }
+
+            .add-button {
+                @include button();
+            }
+
+            table {
+                border-color: white;
+                color: white;
+
+                thead {
+                    tr {
+                        th {
+                            font-weight: 500;
+                        }
+                    }
+                }
+                tbody {
+                    tr {
+                        th, td {
+                            font-weight: 300;
+                            font-size: 15px;
+                        }
+                        th {
+                            width: 5%;
+                        }
+                        .category {
+                            width: 20%;
+                        }
+                        .title {
+                            width: 30%;
+                        }
+                        .desc {
+                            width: 35%;
+                        }
+                        .action {
+                            width: 15%;
+                            text-align: end;
+                            a {
+                                color: white;
+                                cursor: pointer;
+                                text-decoration: none;
+                                i {
+                                    padding: 3px;
+                                    border-radius: 5px;
+                                    background-color: $color3;
+                                }
+
+                                i.bi-trash{
+                                    background-color: $color1;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .setting {
+        .subcontent {
+            form {
+                input {
+                    max-width: 85%;
+                }
+                .btn {
+                    width: 85%;
+                    button {
+                        background-color: $color3;
+                        border: none;
+                        padding-right: 2rem;
+                        padding-left: 2rem;
+                        width: auto;
+                        font-size: 1rem;
+
+                        &:hover {
+                            background-color: darken($color3, 10%);
+                        }
                     }
                 }
             }
         }
     }
 }
+
+@media screen and (max-width: 992px){
+    body {
+        .glassmorphism {
+            .nav {
+                .nav-logo {
+                    a {
+                        text-align: center;
+                        img {
+                            width: 80%;
+                        }
+                    }
+                }
+                max-width: 10%;
+                .nav-menu {
+                    ul {
+                        width: 100%;
+                        li {
+                            a {
+                                i {
+                                    font-size: 25px;
+                                }
+                                p {
+                                    display: none;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            #content {
+                .subcontent {
+                    .form-description {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 576px) {
+    body {
+        .glassmorphism {
+            display: flex;
+            flex-direction: column;
+
+            .nav {
+                min-width: 100%;
+                height: 70px;
+                border-radius: 0;
+                border-top-left-radius: 1rem;
+                border-top-right-radius: 1rem;
+                display: flex;
+                flex-direction: row;
+
+                .nav-logo {
+                    width: 20%;
+                    height: 100%;
+                }
+
+                .nav-menu {
+                    width: 80%;
+                    height: 100%;
+                    ul {
+                        display: flex;
+                        flex-direction: row;
+                        height: 100%;
+                        li {
+                            height: 100%;
+                            display: flex;
+                            align-items: center;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@keyframes fade {
+    to {
+        opacity: 1;
+    }    
+}
+
+.fade-out {
+    opacity: 0;
+    animation: fade 0.5s forwards;  
+}
+// 'forwards' = animasi akan berhenti di keadaan terakhir
